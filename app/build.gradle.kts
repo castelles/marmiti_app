@@ -86,5 +86,6 @@ dependencies {
     implementation(Libraries.koinViewModel)
 
     implementation(Libraries.dimensSdp)
+    implementation(Libraries.lottie)
 
 }

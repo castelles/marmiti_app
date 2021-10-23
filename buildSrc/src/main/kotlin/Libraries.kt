@@ -8,6 +8,7 @@ object Versions {
     const val constraintLayoutVersion = "2.0.4"
     const val junitVersion = "4.+"
     const val junitAndroidXVersion = "1.1.3"
+    const val lottieVersion = "4.2.0"
     const val espressoVersion = "3.4.0"
     const val navigationVersion = "2.3.3"
     const val navigationKtxVersion = "2.3.5"
@@ -62,6 +63,7 @@ object Libraries {
     const val koin = "org.koin:koin-android:${Versions.koinVersion}"
     const val koinScope = "org.koin:koin-android-scope:${Versions.koinVersion}"
     const val koinViewModel= "org.koin:koin-android-viewmodel:${Versions.koinVersion}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
 
     const val dimensSdp = "com.intuit.sdp:sdp-android:${Versions.dimesLayoutVersion}"
     const val coroutinesFlow = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.flowJvmVersion}"

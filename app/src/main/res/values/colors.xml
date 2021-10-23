@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="wine_red">#FFFF2121</color>
+    <color name="rose_red">#FFF15B5B</color>
+    <color name="light_red">#FFFFA8A8</color>
+    <color name="orange">#FFFFC377</color>
+    <color name="light_orange">#C3EFC186</color>
+    <color name="app_background">#FFE0B8</color>
+    <color name="light_green">#8DFD7A</color>
 </resources>
