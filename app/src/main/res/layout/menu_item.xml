@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="item"
             type="castelles.com.github.api.model.MenuItem" />
@@ -20,9 +19,9 @@
             app:cardCornerRadius="@dimen/_16sdp"
             android:background="#00FFFFFF"
             android:layout_marginVertical="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txv_menu_title"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -40,8 +39,8 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/nunito_bold"
             android:maxLength="28"
-            android:text="Lasanha vegetariana clássica"
-            android:textColor="@color/wine_red"
+            android:text="@{item.name}"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/_14sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,8 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4sdp"
             android:fontFamily="@font/nunito_light"
-            android:text="Massa comum, bolonhesa de soja, molho bechamel clássico e queijo."
-            android:textColor="@color/wine_red"
+            android:text="@{item.description}"
+            android:textColor="?attr/colorSecondary"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintEnd_toStartOf="@+id/cdv_menu_image"
             app:layout_constraintStart_toStartOf="@+id/txv_menu_title"
@@ -66,7 +65,7 @@
             android:layout_marginTop="@dimen/_4sdp"
             android:fontFamily="@font/nunito_light"
             android:text="R$ 22,00"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintStart_toStartOf="@+id/txv_menu_ingredients"
             app:layout_constraintTop_toBottomOf="@+id/txv_menu_ingredients" />

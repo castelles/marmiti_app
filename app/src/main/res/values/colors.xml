@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_background">#ECECEC</color>
     <color name="red">#FFFF0000</color>
     <color name="wine_red">#FFFF2121</color>
     <color name="rose_red">#FFF15B5B</color>
@@ -15,4 +16,10 @@
     <color name="light_orange">#C3EFC186</color>
     <color name="app_background">#FFE0B8</color>
     <color name="light_green">#8DFD7A</color>
+    <color name="black_text">#1E1E1E</color>
+    <color name="bold_text">#111111</color>
+    <color name="grey_disable">#BDBDBD</color>
+    <color name="grey_btn">#EEEEEE</color>
+    <color name="grey_disable_opaque">#669E9E9E</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

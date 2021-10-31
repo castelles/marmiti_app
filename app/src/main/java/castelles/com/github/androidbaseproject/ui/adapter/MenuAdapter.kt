@@ -3,7 +3,7 @@ package castelles.com.github.androidbaseproject.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import castelles.com.github.androidbaseproject.databinding.MenuItemBinding
+import castelles.com.github.androidbaseproject.databinding.NewMenuItemBinding
 import castelles.com.github.api.model.MenuItem
 
 class MenuAdapter(
@@ -13,7 +13,7 @@ class MenuAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemHolder =
         with(LayoutInflater.from(parent.context)) {
-            val binding = MenuItemBinding.inflate(this, parent, false)
+            val binding = NewMenuItemBinding.inflate(this, parent, false)
             MenuItemHolder(binding)
         }
 
@@ -31,7 +31,7 @@ class MenuAdapter(
     }
 
     inner class MenuItemHolder(
-        private val binding: MenuItemBinding
+        private val binding: NewMenuItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
 
