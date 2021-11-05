@@ -1,9 +1,9 @@
-package castelles.com.github.androidbaseproject.ui.adapter
+package castelles.com.github.maniva.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import castelles.com.github.androidbaseproject.databinding.NewMenuItemBinding
+import castelles.com.github.maniva.databinding.NewMenuItemBinding
 import castelles.com.github.api.model.MenuItem
 
 class MenuAdapter(

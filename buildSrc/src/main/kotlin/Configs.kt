@@ -1,5 +1,5 @@
 object Configs {
-    const val appId = "castelles.com.github.androidbaseproject"
+    const val appId = "castelles.com.github.maniva"
     const val compileSdkVersion = 30
     const val buildToolsVersion = "30.0.3"
     const val minSdkVersion = 22

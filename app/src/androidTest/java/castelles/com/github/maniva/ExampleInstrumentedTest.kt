@@ -1,4 +1,4 @@
-package castelles.com.github.androidbaseproject
+package castelles.com.github.maniva
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

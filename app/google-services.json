@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "151701824740",
+    "project_id": "manivamarmiti-1636141449638",
+    "storage_bucket": "manivamarmiti-1636141449638.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151701824740:android:0a648636250ab7553df8f1",
+        "android_client_info": {
+          "package_name": "castelles.com.github.maniva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151701824740-5uifsntiah2tfunqg74s9lpmng32g75f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "castelles.com.github.maniva",
+            "certificate_hash": "b8b96363f5018c1239f98e97e64edd50aae442cb"
+          }
+        },
+        {
+          "client_id": "151701824740-tlkjuoc8lqiua6fos6tbv0hpfb3ic4sv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV0x_XIhvE0DXv5D1X0Gs8fZwbQHF-bGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151701824740-tlkjuoc8lqiua6fos6tbv0hpfb3ic4sv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

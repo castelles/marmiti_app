@@ -1,12 +1,11 @@
-package castelles.com.github.androidbaseproject.ui
+package castelles.com.github.maniva.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
-import castelles.com.github.androidbaseproject.databinding.FragmentProductDetailsBinding
+import castelles.com.github.maniva.databinding.FragmentProductDetailsBinding
 import castelles.com.github.api.model.MenuItem
 
 class ProductDetailsFragment: Fragment() {

@@ -1,21 +1,20 @@
-package castelles.com.github.androidbaseproject.ui
+package castelles.com.github.maniva.ui
 
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
-import castelles.com.github.androidbaseproject.MainActivity
-import castelles.com.github.androidbaseproject.R
-import castelles.com.github.androidbaseproject.databinding.FragmentHomeBinding
-import castelles.com.github.androidbaseproject.ui.adapter.CarouselAdapter
-import castelles.com.github.androidbaseproject.ui.adapter.MenuAdapter
-import castelles.com.github.androidbaseproject.viewmodel.UserViewModel
+import castelles.com.github.maniva.R
+import castelles.com.github.maniva.databinding.FragmentHomeBinding
+import castelles.com.github.maniva.ui.adapter.CarouselAdapter
+import castelles.com.github.maniva.ui.adapter.MenuAdapter
+import castelles.com.github.maniva.viewmodel.UserViewModel
 import castelles.com.github.api.model.MenuItem
 import castelles.com.github.api.model.UserResponse
 import castelles.com.github.api.utils.Error
@@ -74,7 +73,9 @@ class HomeFragment: Fragment() {
 
     private fun setClickListeners() {
         binding.imvHambMenu.setOnClickListener {
-            MainActivity.drawerLayout?.openDrawer(Gravity.START)
+            requireActivity()
+                .findViewById<DrawerLayout>(R.id.dwl_root)
+                .openDrawer(Gravity.START)
         }
     }
 

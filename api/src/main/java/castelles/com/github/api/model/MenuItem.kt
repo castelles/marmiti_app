@@ -12,10 +12,16 @@ data class MenuItem(
     val quantityAvailable: Int,
     val favorite: Boolean = false,
     val image: Int,
-    val promotion: Promotion = Promotion()
+    val promotion: Promotion = Promotion(),
+    val images: List<Image>? = null
 ): Serializable
 
 data class Promotion(
     val promotion: Boolean = false,
     val pricePromotion: Double = 0.00
+)
+
+data class Image(
+    val orientation: String,
+    val image: String
 )

@@ -45,13 +45,14 @@ android {
         val STRING_LOWER: String = "string"
         val STRING: String = "string"
         val APP_NAME: String = "app_name"
+        val APP: String = "Maniva"
 
         create(Configs.dev) {
             dimension = Configs.dimensionEnv
             applicationIdSuffix = Configs.devAppSuffix
             versionNameSuffix = Configs.devVersionNameSuffix
 
-            resValue(STRING_LOWER, APP_NAME, "Base$versionNameSuffix")
+            resValue(STRING_LOWER, APP_NAME, "Maniva$versionNameSuffix")
         }
     }
 
@@ -88,5 +89,10 @@ dependencies {
 
     implementation(Libraries.dimensSdp)
     implementation(Libraries.lottie)
+
+    implementation(Libraries.googleAuthApi)
+    implementation(Libraries.googleServices)
+    implementation(platform(Libraries.firebaseBoM))
+    implementation(Libraries.firebaseAnalytics)
 
 }

@@ -23,6 +23,9 @@ object Versions {
     const val loggingVersion = "4.7.2"
     const val fragmentVersion = "1.3.+"
     const val viewModelSavedStateVersion = "2.3.0"
+    const val googleAuthVersion = "19.2.0"
+    const val googleServicesVersion = "4.3.10"
+    const val firebaseBoMVersion = "29.0.0"
 }
 
 object Libraries {
@@ -67,4 +70,9 @@ object Libraries {
 
     const val dimensSdp = "com.intuit.sdp:sdp-android:${Versions.dimesLayoutVersion}"
     const val coroutinesFlow = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${Versions.flowJvmVersion}"
+
+    const val googleAuthApi = "com.google.android.gms:play-services-auth:${Versions.googleAuthVersion}"
+    const val googleServices = "com.google.gms:google-services:${Versions.googleServicesVersion}"
+    const val firebaseBoM = "com.google.firebase:firebase-bom:${Versions.firebaseBoMVersion}"
+    const val firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
 }

@@ -1,4 +1,4 @@
-package castelles.com.github.androidbaseproject.viewmodel.state
+package castelles.com.github.maniva.viewmodel.state
 
 import castelles.com.github.api.utils.NetworkFetcher
 

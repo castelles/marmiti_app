@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="castelles.com.github.androidbaseproject.viewmodel.UserViewModel" />
+        <import type="castelles.com.github.maniva.viewmodel.UserViewModel" />
 
         <variable
             name="viewModel"
@@ -32,7 +32,7 @@
                 android:src="@drawable/ic_menu"/>
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_55sdp"
                 android:fontFamily="@font/nunito_bold"

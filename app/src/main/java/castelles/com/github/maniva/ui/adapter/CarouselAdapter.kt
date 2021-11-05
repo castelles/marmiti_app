@@ -1,13 +1,12 @@
-package castelles.com.github.androidbaseproject.ui.adapter
+package castelles.com.github.maniva.ui.adapter
 
 import android.content.Context
-import android.graphics.Matrix
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import castelles.com.github.androidbaseproject.R
+import castelles.com.github.maniva.R
 
 class CarouselAdapter(private val context: Context): PagerAdapter() {
 

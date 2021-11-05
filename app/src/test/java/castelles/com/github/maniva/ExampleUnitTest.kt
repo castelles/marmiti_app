@@ -1,4 +1,4 @@
-package castelles.com.github.androidbaseproject
+package castelles.com.github.maniva
 
 import org.junit.Test
 

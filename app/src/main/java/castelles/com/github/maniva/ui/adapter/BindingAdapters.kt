@@ -1,9 +1,9 @@
-package castelles.com.github.androidbaseproject.ui.adapter
+package castelles.com.github.maniva.ui.adapter
 
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import castelles.com.github.androidbaseproject.util.toMoneyDecimal
+import castelles.com.github.maniva.util.toMoneyDecimal
 
 
 @BindingAdapter("imageRes")
