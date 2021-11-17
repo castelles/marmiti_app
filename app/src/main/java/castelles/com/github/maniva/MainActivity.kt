@@ -1,13 +1,13 @@
 package castelles.com.github.maniva
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.GravityCompat
@@ -18,6 +18,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import castelles.com.github.maniva.controller.GoogleSignInController
+import castelles.com.github.maniva.util.navigate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -37,21 +39,23 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var navigationView: NavigationView
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private var drawerLayout: DrawerLayout? = null
 
-    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var mGoogleSignInController: GoogleSignInController
 
     override fun onStart() {
         super.onStart()
+        hideStatusBar()
+        mGoogleSignInController = GoogleSignInController(object: GoogleSignInController.SignInCallback {
+            override fun onSuccess(account: GoogleSignInAccount?) {
+                updateName(account)
+            }
 
-        val googleLoginOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .requestProfile()
-            .build()
-
-        mGoogleSignInClient = GoogleSignIn.getClient(
-            this,
-            googleLoginOptions
-        )
+            override fun onFailure(error: ApiException) {
+                Log.e("GoogleSignIn", error.message ?: error.toString())
+            }
+        })
+        mGoogleSignInController.buildSignInScope(this)
     }
 
     override fun onResume() {
@@ -64,9 +68,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun updateHeaderMenu() {
-        GoogleSignIn.getLastSignedInAccount(this)?.let {
+        mGoogleSignInController.getLastAccount(this) {
             MainScope().launch {
-                delay(1500)
+                delay(1000)
                 updateName(it)
             }
         }
@@ -101,18 +105,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
-        }
-    }
-
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            val account = completedTask.getResult(ApiException::class.java)
-            updateName(account)
-        } catch (e: Exception) {
-            Log.w(this.localClassName, "signInResult:failed code=" + e.localizedMessage)
+        if (requestCode == GoogleSignInController.RC_SIGN_IN) {
+            mGoogleSignInController.executeSingInTask(data)
         }
     }
 
@@ -124,11 +118,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private fun setNavigationView(drawerLayout: DrawerLayout?) {
         navigationView = findViewById(R.id.nav_view)
         navigationView.apply {
-            setNavigationItemSelectedListener {
+
+            setNavigationItemSelectedListener { item ->
                 drawerLayout?.closeDrawer(GravityCompat.START)
-                it.onNavDestinationSelected(navController)
+                item.navigate(navController)
                 true
             }
+
             setupWithNavController(navController)
             setHeaderLoginAction()
         }
@@ -137,15 +133,21 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private fun NavigationView.setHeaderLoginAction() {
         val header = getHeaderView(0)
         header.findViewById<SignInButton>(R.id.btn_sign_in).setOnClickListener {
-            val singInIntent = mGoogleSignInClient.signInIntent
-            startActivityForResult(singInIntent, RC_SIGN_IN)
+            mGoogleSignInController.signIn(this@MainActivity)
         }
         header.findViewById<Button>(R.id.btn_log_out).setOnClickListener {
-            mGoogleSignInClient.signOut().addOnCompleteListener {
-                MainScope().launch {
-                    updateName(null)
-                }
+            mGoogleSignInController.signOut {
+                updateName(null)
             }
+        }
+    }
+
+    private fun hideStatusBar() {
+        if (Build.VERSION.SDK_INT < 16) {
+            window.setFlags(SYSTEM_UI_FLAG_FULLSCREEN, SYSTEM_UI_FLAG_FULLSCREEN)
+        } else {
+            window.decorView.systemUiVisibility = SYSTEM_UI_FLAG_FULLSCREEN
+            actionBar?.hide()
         }
     }
 
@@ -153,7 +155,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val drawerLayout: DrawerLayout? = findViewById(R.id.dwl_root)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.home
+                R.id.home,
+                R.id.menu,
+                R.id.orders,
+                R.id.cart
             ),
             drawerLayout
         )
@@ -176,8 +181,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     companion object {
-        var drawerLayout: DrawerLayout? = null
-        const val RC_SIGN_IN = 200
     }
 
 }

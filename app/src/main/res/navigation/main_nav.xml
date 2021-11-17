@@ -28,4 +28,19 @@
         android:name="castelles.com.github.maniva.ui.ProductDetailsFragment"
         android:label="ProductDetailsFragment"
         tools:layout="@layout/fragment_product_details"/>
+    <fragment
+        android:id="@+id/menu"
+        android:name="castelles.com.github.maniva.ui.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu"/>
+    <fragment
+        android:id="@+id/orders"
+        android:name="castelles.com.github.maniva.ui.OrdersFragment"
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_orders"/>
+    <fragment
+        android:id="@+id/cart"
+        android:name="castelles.com.github.maniva.ui.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart"/>
 </navigation>

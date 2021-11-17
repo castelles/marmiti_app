@@ -16,9 +16,9 @@
             android:menuCategory="system"
             android:title="@string/str_orders" />
         <item
-            android:id="@+id/favorites"
-            android:icon="@drawable/ic_favorite"
+            android:id="@+id/cart"
+            android:icon="@drawable/ic_shopping_cart"
             android:menuCategory="system"
-            android:title="@string/str_favorites" />
+            android:title="Carrinho" />
     </group>
 </menu>

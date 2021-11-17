@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/txv_almost_ready"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginHorizontal="@dimen/_18sdp"
+            android:fontFamily="@font/nunito_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="?attr/colorOnPrimary"
+            android:text="@string/str_maniva_almost_ready_to_kitchen"/>
+
+        <TextView
+            android:id="@+id/txv_review_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_18sdp"
+            android:gravity="end"
+            android:fontFamily="@font/nunito_light"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textSize="@dimen/_10sdp"
+            android:text="Revise seu pedido e mande pra gente"
+            android:textColor="?attr/colorSecondaryVariant"
+            app:layout_constraintTop_toBottomOf="@+id/txv_almost_ready" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/background_cart_review"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/txv_review_items"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

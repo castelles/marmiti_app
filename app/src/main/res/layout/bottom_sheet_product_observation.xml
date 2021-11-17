@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:background="@drawable/shape_details_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv_root_bottom_sheet"
+            style="@style/Widget.Design.BottomSheet.Modal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_details_top"
+            app:behavior_peekHeight="500dp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:cardElevation="@dimen/_12sdp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_details_top">
+
+                <TextView
+                    android:id="@+id/txv_observation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Observações"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_observation"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="100"
+                    app:layout_constraintTop_toBottomOf="@id/txv_observation"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiet_observation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLength="100"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_add"
+                    style="@style/DenseButton.PrimaryDenseButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginVertical="@dimen/_22sdp"
+                    android:text="Confirmar"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/til_observation"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <Button
+                    android:id="@+id/btn_back"
+                    style="@style/LightButton.NoStrokeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginVertical="@dimen/_22sdp"
+                    android:text="Voltar"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_add"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/ltt_success"
+                    android:layout_width="@dimen/_44sdp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_add"
+                    app:layout_constraintEnd_toEndOf="@id/btn_add"
+                    app:layout_constraintTop_toTopOf="@id/btn_add"
+                    app:lottie_autoPlay="false"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/success_interaction"
+                    app:lottie_repeatMode="reverse" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,11 +1,13 @@
 <resources>
 <!--    <string name="app_name">androidbaseproject</string>-->
     <string name="str_fetch">Fetch</string>
-    <string name="str_have_you_eaten_your_marmiti_today_q">Já comeu seu\nMarmiti hoje?</string>
+    <string name="str_have_you_eaten_your_marmiti_today_q">Já comeu seu\nManiva hoje?</string>
     <string name="str_home">Início</string>
     <string name="str_menu">Cardápio</string>
     <string name="str_orders">Pedidos</string>
     <string name="str_favorites">Favoritos</string>
     <string name="str_login_to_use_app">Faça o <b>login</b> para\nutilizar todo o app</string>
     <string name="str_hello_user">Olá, <b>%s</b></string>
+    <string name="str_know_our_promotions">Conheça nossas promoções</string>
+    <string name="str_maniva_almost_ready_to_kitchen">Seu <i>Maniva</i> está\n\t\tquase pronto pra\nir para a nossa cozinha!</string>
 </resources>

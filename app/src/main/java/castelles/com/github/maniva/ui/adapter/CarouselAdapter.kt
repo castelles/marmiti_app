@@ -6,14 +6,20 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import castelles.com.github.maniva.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-class CarouselAdapter(private val context: Context): PagerAdapter() {
+class CarouselAdapter(private val context: Context) : PagerAdapter() {
 
     override fun getCount(): Int = IMAGES.size
 
     override fun startUpdate(container: ViewGroup) {
         super.startUpdate(container)
+//        if (automatic) (container as ViewPager).setAutomaticRoller(4000)
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -30,7 +36,6 @@ class CarouselAdapter(private val context: Context): PagerAdapter() {
         (container as ViewPager).addView(image)
         return image
     }
-
     companion object {
         val IMAGES = mutableListOf(
             R.drawable.carousel_lasanha,

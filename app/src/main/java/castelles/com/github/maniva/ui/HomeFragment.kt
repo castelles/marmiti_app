@@ -21,6 +21,8 @@ import castelles.com.github.api.utils.Error
 import castelles.com.github.api.utils.ErrorHandler
 import castelles.com.github.api.utils.Loading
 import castelles.com.github.api.utils.Success
+import castelles.com.github.maniva.util.autoScroll
+import castelles.com.github.maniva.util.generateList
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -80,32 +82,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun setAdapter() {
-        val items = mutableListOf<MenuItem>()
-        items.add(
-            MenuItem(
-            1,
-            "Lasanha vegetariana clássica",
-            "Massa comum, bolonhesa de soja, molho bechamel clássico e queijo.",
-                22.00,
-                true,
-                true,
-                5,
-                image = R.drawable.carousel_lasanha
-            )
-        )
-
-        items.add(
-            MenuItem(
-                1,
-                "Marmita Brasileira",
-                "Picadinho de soja com cenoura e pimentão, purê de batatas e arroz branco ou integral.",
-                12.00,
-                true,
-                true,
-                5,
-                image = R.drawable.marmiti_brasileira
-            )
-        )
+        val items = requireContext().generateList()
 
         adapter = MenuAdapter(items) {
             val bundle = Bundle().apply {
@@ -120,13 +97,13 @@ class HomeFragment: Fragment() {
         binding.rcvMenu.apply {
             layoutManager = LinearLayoutManager(context, VERTICAL, false)
             adapter = this@HomeFragment.adapter
-//            val itemDecorator = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-//            itemDecorator.setDrawable(requireContext().getDrawable(R.drawable.divider_recycler)!!)
-//            addItemDecoration(itemDecorator)
         }
 
 
-        binding.vpPromotions.adapter = CarouselAdapter(requireContext())
+        binding.vpPromotions.apply {
+            adapter = CarouselAdapter(requireContext())
+            autoScroll(4500)
+        }
     }
 
 }

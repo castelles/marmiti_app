@@ -5,9 +5,11 @@
 
     <data>
 
+        <import type="castelles.com.github.maniva.viewmodel.ProductDetailsViewModel" />
+
         <variable
-            name="item"
-            type="castelles.com.github.api.model.MenuItem" />
+            name="viewModel"
+            type="ProductDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,20 +18,20 @@
 
         <ImageView
             android:id="@+id/imv_product"
+            imageRes="@{viewModel.productFetcher.image}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            imageRes="@{item.image}"
             android:layout_marginBottom="@dimen/_154sdp"
+            android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/marmiti_brasileira" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_18sdp"
-            android:translationY="@dimen/_12sdp"
             android:background="?attr/colorPrimaryVariant"
+            android:translationY="@dimen/_12sdp"
+            app:cardCornerRadius="@dimen/_18sdp"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +45,7 @@
                     android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_18sdp"
                     android:fontFamily="@font/nunito_black"
-                    android:text="@{item.name}"
+                    android:text="@{viewModel.productFetcher.name}"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="@dimen/_16sdp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +54,7 @@
 
                 <TextView
                     android:id="@+id/txv_item_price"
-                    price="@{item.price}"
+                    price="@{viewModel.productFetcher.price}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -72,7 +74,7 @@
                     android:layout_marginHorizontal="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/nunito_regular"
-                    android:text="@{item.description}"
+                    android:text="@{viewModel.productFetcher.description}"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintTop_toBottomOf="@id/txv_item_name"
@@ -88,9 +90,11 @@
                     app:layout_constraintTop_toBottomOf="@id/txv_item_description">
 
                     <Button
+                        android:id="@+id/btn_remove"
                         style="@style/DenseButton.PrimaryDenseButton.ProductQuantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{ () -> viewModel.removeItem() }"
                         android:text="-"
                         android:textSize="@dimen/_18sdp" />
 
@@ -100,25 +104,28 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/nunito_regular"
                         android:gravity="center"
-                        android:text="1"
+                        android:text="@{viewModel.quantity + ``}"
                         android:textColor="?attr/colorPrimary"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_12sdp"
+                        tools:text="1" />
 
                     <Button
+                        android:id="@+id/btn_add"
                         style="@style/DenseButton.PrimaryDenseButton.ProductQuantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{ () -> viewModel.addItem() }"
                         android:text="+"
                         android:textSize="@dimen/_18sdp" />
 
                     <TextView
                         android:id="@+id/txv_item_total"
-                        price="@{item.price}"
                         android:layout_width="@dimen/_85sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/nunito_bold"
                         android:gravity="end"
+                        android:text="@{viewModel.priceTotal}"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="@dimen/_12sdp"
                         tools:text="R$ 22,00" />
@@ -138,6 +145,7 @@
                     android:paddingVertical="@dimen/_14sdp"
                     android:text="Adicionar ao carrinho"
                     android:textSize="@dimen/_12sdp"
+                    android:onClick="@{() -> viewModel.addToCart()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -4,6 +4,7 @@ import castelles.com.github.maniva.viewmodel.UserViewModel
 import castelles.com.github.api.datasource.UserDataSource
 import castelles.com.github.api.repository.UserRepositoryImpl
 import castelles.com.github.api.repository.contract.UserRepository
+import castelles.com.github.maniva.viewmodel.ProductDetailsViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -18,4 +19,5 @@ val repositoryModules = module {
 
 val viewModelModules = module {
     viewModel { UserViewModel(get()) }
+    viewModel { ProductDetailsViewModel() }
 }
